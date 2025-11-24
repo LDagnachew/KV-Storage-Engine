@@ -126,11 +126,6 @@ A traditional balanced tree structure with fixed-size pages stored on disk.
 - [LSM Trees Paper](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
 - [B-Trees vs LSM Trees](https://tikv.org/deep-dive/key-value-engine/b-tree-vs-lsm/)
 
-
-## License
-
-MIT License - See LICENSE file for details
-
 ## Acknowledgments
 
 Inspired by storage engines in LevelDB, RocksDB, PostgreSQL, and SQLite. Built for learning and understanding database internals.
