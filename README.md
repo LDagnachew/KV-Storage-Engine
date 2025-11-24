@@ -61,48 +61,6 @@ A traditional balanced tree structure with fixed-size pages stored on disk.
 
 **Use Cases:** Read-heavy workloads, range queries, ACID transactions
 
-## Getting Started
-
-### Prerequisites
-
-- Go 1.21 or higher
-- Basic understanding of data structures and algorithms
-
-### Installation
-
-```bash
-git clone https://github.com/yourusername/go-storage-engine.git
-cd go-storage-engine
-go mod download
-```
-
-### Quick Start
-
-```go
-package main
-
-import (
-    "github.com/yourusername/go-storage-engine/hash"
-    "github.com/yourusername/go-storage-engine/lsm"
-    "github.com/yourusername/go-storage-engine/btree"
-)
-
-func main() {
-    // Hash Index
-    hashDB, _ := hash.Open("./data/hash")
-    hashDB.Put([]byte("key"), []byte("value"))
-    value, _ := hashDB.Get([]byte("key"))
-    
-    // LSM Tree
-    lsmDB, _ := lsm.Open("./data/lsm")
-    lsmDB.Put([]byte("key"), []byte("value"))
-    
-    // B-Tree
-    btreeDB, _ := btree.Open("./data/btree")
-    btreeDB.Put([]byte("key"), []byte("value"))
-}
-```
-
 ## Implementation Details
 
 ### Hash Indexing
@@ -125,7 +83,7 @@ func main() {
 - **Concurrency:** Page-level locking
 - **Durability:** WAL with checkpointing
 
-## Performance Benchmarks
+## Target Benchmarks
 
 | Operation | Hash Index | LSM Tree | B-Tree |
 |-----------|------------|----------|--------|
@@ -135,21 +93,6 @@ func main() {
 
 *Benchmarks run on consumer hardware with default configurations*
 
-## Testing
-
-```bash
-# Run all tests
-go test ./...
-
-# Run with race detector
-go test -race ./...
-
-# Run benchmarks
-go test -bench=. ./...
-
-# Run with coverage
-go test -cover ./...
-```
 
 ## Project Structure
 
@@ -183,15 +126,6 @@ go test -cover ./...
 - [LSM Trees Paper](https://www.cs.umb.edu/~poneil/lsmtree.pdf)
 - [B-Trees vs LSM Trees](https://tikv.org/deep-dive/key-value-engine/b-tree-vs-lsm/)
 
-## Contributing
-
-Contributions are welcome! This is an educational project, so clear code and thorough comments are appreciated.
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes with clear messages
-4. Add tests for new functionality
-5. Submit a pull request
 
 ## License
 
